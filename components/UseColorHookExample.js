@@ -16,7 +16,12 @@ const UseColorHookExample=()=>{
               accessible={true}
               accessibilityLabel="Logo"
             />
-            <Text style={style.regularText}>Color Scheme : {colorScheme}</Text>{''}
+            <Text style={[
+                style.regularText,
+                colorScheme === 'light'
+              ? { color: '#333333' }
+              : { color: '#EDEFEE' },
+                ]}>Color Scheme : {colorScheme}</Text>{''}
         </ScrollView>
     )
 }
