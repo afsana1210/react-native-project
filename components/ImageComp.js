@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from "react-native"
 const ImageComp=()=>{
     return(
         <View style={style.container}>
-            <Image style={style.logo} source={require("../Img/LittleLemonLogo.PNG")}></Image>
+            <Image style={style.logo} source={require("../Img/LittleLemonLogo.PNG")} resizeMode="contain"></Image>
             <Text style={style.title}>Little Lemon Logo</Text>
         </View>
     )
@@ -18,7 +18,7 @@ const style=StyleSheet.create({
     logo:{
       height:100,
       width:300,
-      resizeMode:'contain'
+      flex:1
     },
     title:{
         marginTop:16,
