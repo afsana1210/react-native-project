@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text, StyleSheet, SectionList } from 'react-native';
+import { View, Text, StyleSheet, SectionList, Pressable } from 'react-native';
 
 const menuItemsToDisplay = [
   {
@@ -51,7 +51,7 @@ const Footer = () => (
   </Text>
 );
 
-const SectionListExample = () => {
+const SectionListExample = ({navigation}) => {
   const renderItem = ({ item }) => <Item name={item} />;
 
   const renderSectionHeader = ({ section: { title } }) => (
@@ -66,7 +66,11 @@ const SectionListExample = () => {
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         ListFooterComponent={Footer}
-        ItemSeparatorComponent={Separator}></SectionList>
+        ItemSeparatorComponent={Separator}>
+        </SectionList>
+        <Pressable onPress={()=>navigation.goBack()}>
+          <Text style={menuStyles.buttonText}>Go Back</Text>
+        </Pressable>
     </View>
   );
 };
@@ -102,6 +106,11 @@ const menuStyles = StyleSheet.create({
     flexWrap: 'wrap',
     textAlign: 'center',
   },
+  buttonText:{
+    color:'#000000',
+    textAlign:'center',
+    fontSize:25
+  }
 });
 
 export default SectionListExample;
