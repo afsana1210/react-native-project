@@ -68,6 +68,11 @@ const SectionListExample = ({navigation}) => {
         ListFooterComponent={Footer}
         ItemSeparatorComponent={Separator}>
         </SectionList>
+        <Pressable
+         onPress={()=>navigation.navigate('Details')}
+        >
+         <Text style={menuStyles.buttonText}>Navigate to Detail Screen</Text>
+        </Pressable>
         <Pressable onPress={()=>navigation.goBack()}>
           <Text style={menuStyles.buttonText}>Go Back</Text>
         </Pressable>
