@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import WelcomeScreen from './components/WelcomeScreen';
 import SectionListExample from './components/SectionListExample';
 import LoginScreenWithPresableComp from './components/LoginScreenWithPressableComp';
+import LoginScreenWithNavigation from './components/LoginScreenWithNavigation';
+import DetailScreenwithNavigation from './components/DetailScreenwithNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,13 +17,23 @@ export default function App() {
     <NavigationContainer>
       <View style={styles.container}>
           <Header />
-      <Stack.Navigator initialRouteName='Welcome' >
+      <Stack.Navigator 
+      initialRouteName='Login' 
+      screenOptions={{
+        headerStyle:{backgroundColor:'#333333'},
+        headerTintColor:'#fff',
+        headerTitleStyle:{
+          fontWeight:'bold'
+        }
+      }}
+      >
       <Stack.Screen
        options={{title:'Home'}}
        name='Welcome'
        component={WelcomeScreen}/>
-      <Stack.Screen name='Login' component={LoginScreenWithPresableComp}/>
+      <Stack.Screen name='Login' component={LoginScreenWithNavigation}/>
       <Stack.Screen name='Menu' component={SectionListExample}/>
+      <Stack.Screen name='Details' component={DetailScreenwithNavigation}/>
       </Stack.Navigator>
       </View>
       <View style={styles.footerContainer}>
